@@ -1,0 +1,80 @@
+
+********** Pass Rates By Instructor ***********
+
+Instructor # I01 pass rate is : 0.618868
+Instructor # I02 pass rate is : 0.553333
+Instructor # I03 pass rate is : 0.9
+Instructor # I04 pass rate is : 0.420455
+Instructor # I06 pass rate is : 0.826087
+Instructor # I07 pass rate is : 0.928382
+Instructor # I08 pass rate is : 0.470255
+Instructor # I10 pass rate is : 0.877698
+Instructor # I11 pass rate is : 0.612903
+Instructor # I12 pass rate is : 0.611486
+Instructor # I14 pass rate is : 0.835498
+Instructor # I15 pass rate is : 0.812865
+Instructor # I16 pass rate is : 0.50641
+Instructor # I17 pass rate is : 0.716418
+Instructor # I18 pass rate is : 0.67031
+Instructor # I19 pass rate is : 0.859281
+Instructor # I20 pass rate is : 0.670833
+Instructor # I21 pass rate is : 0.546742
+Instructor # I22 pass rate is : 0.784091
+Instructor # I23 pass rate is : 0.78882
+Instructor # I24 pass rate is : 0.828571
+Instructor # I25 pass rate is : 0.7
+Instructor # I26 pass rate is : 0.666667
+Instructor # I27 pass rate is : 0.837079
+Instructor # I28 pass rate is : 0.401739
+
+********** Pass Rates By Course Number ***********
+
+Course Number # 1115 pass rate is : 0.55144
+Course Number # 3115 pass rate is : 0.778906
+Course Number # 3130 pass rate is : 0.824473
+
+********** W Rates By Instructor ***********
+
+Instructor # I01 W rate is : 0.211321
+Instructor # I02 W rate is : 0.14
+Instructor # I03 W rate is : 0.025
+Instructor # I04 W rate is : 0.136364
+Instructor # I06 W rate is : 0.0724638
+Instructor # I07 W rate is : 0.0477454
+Instructor # I08 W rate is : 0.209632
+Instructor # I10 W rate is : 0.0215827
+Instructor # I11 W rate is : 0.16129
+Instructor # I12 W rate is : 0.209459
+Instructor # I14 W rate is : 0.0606061
+Instructor # I15 W rate is : 0.0994152
+Instructor # I16 W rate is : 0.214744
+Instructor # I17 W rate is : 0.0746269
+Instructor # I18 W rate is : 0.140255
+Instructor # I19 W rate is : 0.0449102
+Instructor # I20 W rate is : 0.145833
+Instructor # I21 W rate is : 0.212465
+Instructor # I22 W rate is : 0.125
+Instructor # I23 W rate is : 0.10559
+Instructor # I24 W rate is : 0.0857143
+Instructor # I25 W rate is : 0.133333
+Instructor # I26 W rate is : 0.166667
+Instructor # I27 W rate is : 0.0730337
+Instructor # I28 W rate is : 0.273043
+
+********** W Rates By Course Number ***********
+
+Course Number # 1115 W rate is : 0.195816
+Course Number # 3115 W rate is : 0.1
+Course Number # 3130 W rate is : 0.0782347
+
+********** Pass Rates By Course Number for the Fall Term ***********
+
+Course Number # 1115 Fall pass rate is : 0.539466
+Course Number # 3115 Fall pass rate is : 0.803129
+Course Number # 3130 Fall pass rate is : 0.829225
+
+********** Pass Rates By Course Number for the Spring Term ***********
+
+Course Number # 1115 Spring pass rate is : 0.566182
+Course Number # 3115 Spring pass rate is : 0.74269
+Course Number # 3130 Spring pass rate is : 0.818182

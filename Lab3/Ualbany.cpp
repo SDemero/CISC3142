@@ -32,8 +32,17 @@ struct Student{
 
 void readFile (vector <Student>& uAlbany,ofstream& out_stream, string line,set < string >& sInstructor,
   set < string >& sCourseNo, set < string >& sGrade);
+
 bool didPass(string grade);
 void passRateInstr(vector<Student> uAlbany,ofstream& out_stream, set <string> sets);
+void passRateCO(vector<Student> uAlbany,ofstream& out_stream, set <string> sets);
+void wRateInstr(vector<Student> uAlbany,ofstream& out_stream, set <string> sets);
+void wRateCO(vector<Student> uAlbany,ofstream& out_stream, set <string> sets);
+void passRateCOFall(vector<Student> uAlbany,ofstream& out_stream, set <string> sets);
+void passRateCOSpring(vector<Student> uAlbany,ofstream& out_stream, set <string> sets);
+
+
+
 
 
 int main() {
@@ -60,6 +69,11 @@ files.push_back("./data/d279545d975c1652689e8195e2426adf/3130.csv");
  }
 
  passRateInstr(uAlbany,out_stream,sInstructor);
+ passRateCO(uAlbany,out_stream,sCourseNo);
+ wRateInstr(uAlbany,out_stream,sInstructor);
+ wRateCO(uAlbany,out_stream,sCourseNo);
+ passRateCOFall(uAlbany,out_stream,sCourseNo);
+ passRateCOSpring(uAlbany,out_stream,sCourseNo);
 
  
 
@@ -147,12 +161,56 @@ bool didPass(string grade){
      return false;
 
    }
+ bool isW(string grade){
+     vector <string> psG;
+     psG.push_back("W");
+     
 
+     if (find( psG.begin(), psG.end(), grade) != psG.end() ){
+       return true;
+     }
+     return false;
+
+   }
+bool isSpring(string grade){
+     vector <string> psG;
+     psG.push_back("T04");
+     psG.push_back("T08");
+     psG.push_back("T12");
+     psG.push_back("T16");
+     psG.push_back("T20");
+     psG.push_back("T23");
+     
+
+     if (find( psG.begin(), psG.end(), grade) != psG.end() ){
+       return true;
+     }
+     return false;
+
+   }
+bool isFall(string grade){
+     vector <string> psG;
+     psG.push_back("T11");
+     psG.push_back("T13");
+     psG.push_back("T15");
+     psG.push_back("T17");
+     psG.push_back("T19");
+     psG.push_back("T05");
+     psG.push_back("T07");
+     psG.push_back("T09");
+     
+
+     if (find( psG.begin(), psG.end(), grade) != psG.end() ){
+       return true;
+     }
+     return false;
+
+   }
 void passRateInstr(vector<Student> uAlbany,ofstream& out_stream, set <string> sets){
      
      set <string>::iterator itr;
 
-     cout << "\n********** Pass Rates By Instructor ***********\n" << endl;
+     out_stream << "\n********** Pass Rates By Instructor ***********\n" << endl;
 
 
 
@@ -185,7 +243,58 @@ void passRateInstr(vector<Student> uAlbany,ofstream& out_stream, set <string> se
        }
        double passRate =  passed/ttl_students;
 
-       cout <<"Instructor # " << *itr << " pass rate is : " << passRate << endl;
+       out_stream <<"Instructor # " << *itr << " pass rate is : " << passRate << endl;
+       
+
+    //end of first loop
+     }
+
+
+     
+
+     
+
+
+   }
+
+   void passRateCO(vector<Student> uAlbany,ofstream& out_stream, set <string> sets){
+     
+     set <string>::iterator itr;
+
+     out_stream << "\n********** Pass Rates By Course Number ***********\n" << endl;
+
+
+
+     for (itr = sets.begin(); itr != sets.end(); itr++){
+       //grabs first instruster from set
+       double ttl_students = 0;
+       double passed =0; 
+
+       for(int j =0; j < uAlbany.size(); j++){
+         //itereates through ualbany database
+
+
+         if (*itr == uAlbany[j].course.course_num){
+           //compares ualbany database to find course number grabbed from set
+
+           ttl_students++;
+
+
+           if(didPass(uAlbany[j].course.grade)){
+             passed++;
+            // cout << uAlbany[j].course.grade <<endl;
+
+           //end of 4th loop
+           }
+
+        //end of third loop
+         }
+
+      // end of second loop
+       }
+       double passRate =  passed/ttl_students;
+
+       out_stream <<"Course Number # " << *itr << " pass rate is : " << passRate << endl;
        
 
     //end of first loop
@@ -200,3 +309,218 @@ void passRateInstr(vector<Student> uAlbany,ofstream& out_stream, set <string> se
    }
 
 
+   void wRateInstr(vector<Student> uAlbany,ofstream& out_stream, set <string> sets){
+     
+     set <string>::iterator itr;
+
+     out_stream << "\n********** W Rates By Instructor ***********\n" << endl;
+
+
+
+     for (itr = sets.begin(); itr != sets.end(); itr++){
+       //grabs first instruster from set
+       double ttl_students = 0;
+       double passed =0; 
+
+       for(int j =0; j < uAlbany.size(); j++){
+         //itereates through ualbany database
+
+
+         if (*itr == uAlbany[j].course.instruct_id){
+           //compares ualbany database to find intrustur grabbed from set
+
+           ttl_students++;
+
+
+           if(isW(uAlbany[j].course.grade)){
+             passed++;
+            // cout << uAlbany[j].course.grade <<endl;
+
+           //end of 4th loop
+           }
+
+        //end of third loop
+         }
+
+      // end of second loop
+       }
+       double passRate =  passed/ttl_students;
+
+       out_stream <<"Instructor # " << *itr << " W rate is : " << passRate << endl;
+       
+
+    //end of first loop
+     }
+
+
+     
+
+     
+
+
+   }
+
+
+   void wRateCO(vector<Student> uAlbany,ofstream& out_stream, set <string> sets){
+     
+     set <string>::iterator itr;
+
+     out_stream << "\n********** W Rates By Course Number ***********\n" << endl;
+
+
+
+     for (itr = sets.begin(); itr != sets.end(); itr++){
+       //grabs first instruster from set
+       double ttl_students = 0;
+       double passed =0; 
+
+       for(int j =0; j < uAlbany.size(); j++){
+         //itereates through ualbany database
+
+
+         if (*itr == uAlbany[j].course.course_num){
+           //compares ualbany database to find intrustur grabbed from set
+
+           ttl_students++;
+
+
+           if(isW(uAlbany[j].course.grade)){
+             passed++;
+            // cout << uAlbany[j].course.grade <<endl;
+
+           //end of 4th loop
+           }
+
+        //end of third loop
+         }
+
+      // end of second loop
+       }
+       double passRate =  passed/ttl_students;
+
+       out_stream <<"Course Number # " << *itr << " W rate is : " << passRate << endl;
+       
+
+    //end of first loop
+     }
+
+
+     
+
+     
+
+
+   }
+
+
+void passRateCOFall(vector<Student> uAlbany,ofstream& out_stream, set <string> sets){
+     
+     set <string>::iterator itr;
+
+     out_stream << "\n********** Pass Rates By Course Number for the Fall Term ***********\n" << endl;
+
+
+
+     for (itr = sets.begin(); itr != sets.end(); itr++){
+       //grabs first instruster from set
+       double ttl_students = 0;
+       double passed =0; 
+
+       for(int j =0; j < uAlbany.size(); j++){
+         //itereates through ualbany database
+
+
+         if (*itr == uAlbany[j].course.course_num){
+           //compares ualbany database to find course number grabbed from set
+
+           
+           if (isFall(uAlbany[j].course.term_id)){
+             
+
+            ttl_students++;
+           if(didPass(uAlbany[j].course.grade)){
+             passed++;
+            // cout << uAlbany[j].course.grade <<endl;
+
+           //end of 4th loop
+           }
+
+         }
+
+        //end of third loop
+         }
+
+      // end of second loop
+       }
+       double passRate =  passed/ttl_students;
+
+       out_stream <<"Course Number # " << *itr << " Fall pass rate is : " << passRate << endl;
+       
+
+    //end of first loop
+     }
+
+
+     
+
+     
+
+
+   }
+
+   void passRateCOSpring(vector<Student> uAlbany,ofstream& out_stream, set <string> sets){
+     
+     set <string>::iterator itr;
+
+     out_stream << "\n********** Pass Rates By Course Number for the Spring Term ***********\n" << endl;
+
+
+
+     for (itr = sets.begin(); itr != sets.end(); itr++){
+       //grabs first instruster from set
+       double ttl_students = 0;
+       double passed =0; 
+
+       for(int j =0; j < uAlbany.size(); j++){
+         //itereates through ualbany database
+
+
+         if (*itr == uAlbany[j].course.course_num){
+           //compares ualbany database to find course number grabbed from set
+
+           
+           if (isSpring(uAlbany[j].course.term_id)){
+
+             
+             
+
+            ttl_students++;
+           if(didPass(uAlbany[j].course.grade)){
+             passed++;
+            // cout << uAlbany[j].course.grade <<endl;
+
+           //end of 4th loop
+           }
+
+         }
+
+        //end of third loop
+         }
+
+      // end of second loop
+       }
+       double passRate =  passed/ttl_students;
+
+       out_stream <<"Course Number # " << *itr << " Spring pass rate is : " << passRate << endl;
+       
+
+    //end of first loop
+     }
+
+
+     
+
+     
+
+
+   }
