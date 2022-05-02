@@ -3,5 +3,8 @@ lab1:
 	
 lab2:
 	cd Lab2 && g++ calculator.cpp -o main && ./main
+	
+lab3:	
+	cd Lab3 && g++ uAlbany.cpp -o main && ./main
     
 	
