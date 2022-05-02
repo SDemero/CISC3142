@@ -34,10 +34,10 @@ The input file have same headers and all types will be data type string:
 - INSTRUCTORID : instructor id number
 - TERMID: term is number
 - SECTIONID: section id number
-- GRADE*: grade for course
+- GRADE: grade for course
 
 
-*Only the following grades are allowed:
+*The following grades are labaled passing:
 - A+
 - A
 - A-
@@ -50,14 +50,17 @@ The input file have same headers and all types will be data type string:
 - D+
 - D
 - D-
-- F
+- CR
+- P
+
+*The following grades are labaled Failing:
+- w 
+
+
+
+*The following grades are labaled W:
 - WD
 - W
 - WN
-- WU
-- INC
-- FIN
-- CR
-- P
-- NC
-- AUD
+
+
